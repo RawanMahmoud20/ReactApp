@@ -7,7 +7,7 @@ const About = () => {
   return (
     <Fragment>
       <header className={`text-center ${Aboutstyle.textCenter}`} id="About">
-        <h1>test</h1>
+       
         <div className={`container ${Aboutstyle.container}`}>
           <div className="row align-items-center">
             <div
