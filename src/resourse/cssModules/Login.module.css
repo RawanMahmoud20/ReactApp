@@ -1,0 +1,122 @@
+body {
+  background: linear-gradient(90deg, #f5f2fb 0%, #d8d6f2 100%);
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 0;
+
+    }
+    .loginCard{
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      display: flex;
+      max-width: 800px;
+      width: 100%;
+          margin-top: 100px;
+
+    }
+
+    .loginForm {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    .login-form h3 {
+      color: #333;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
+
+   .formControl {
+      border-radius: 20px;
+      padding-left: 2.5rem;
+      width: 370px;
+      height: 35px;
+    }
+
+    .inputIcon {
+      position: relative;
+    }
+
+    .inputIcon i {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #888;
+    }
+
+    .loginForm .btnPrimary {
+      background-color: #e63946;
+      border-radius: 20px;
+      width: 100%;
+    }
+
+    .btnPrimary a { 
+    text-decoration: none;
+    color: white;}
+    .loginForm .btnPrimary:hover {
+      background-color: #c5303c;
+    }
+
+    .loginForm .formText {
+      text-align: center;
+      text-decoration: none;
+      color: #c5303c;
+    }
+
+    .loginImage {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .loginImage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .formCheckLabel,
+    .formText a {
+      color: #e63946;
+      font-weight: 500;
+    }
+
+    .socialLogin {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .socialLogin p {
+      margin-bottom: 0.5rem;
+      color: #666;
+    }
+
+    .socialIcons a {
+      display: inline-block;
+      margin: 0 10px;
+      color: white;
+      background-color: #e63946;
+      width: 36px;
+      height: 36px;
+      line-height: 36px;
+      border-radius: 50%;
+      text-align: center;
+    }
+
+    .signupText {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .signupText a {
+      color: #e63946;
+      font-weight: 500;
+    }
+

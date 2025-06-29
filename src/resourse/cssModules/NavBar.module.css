@@ -1,0 +1,49 @@
+/* navBar */
+
+.navbar{
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.underlineRed {
+  position: relative;
+  display: inline-block; /* ضروري للحفاظ على حجم العنصر حسب النص */
+}
+
+.navLink.underlineRed {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%; /* ← يجعل الخط بنفس عرض الكلمة */
+  height: 3px;
+  background-color: red;
+  border-radius: 20%;
+  transform: scaleX(0); /* إخفاء أولي للخط */
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.active{
+  border-bottom: red 5px;
+}
+/* يظهر الخط فقط للرابط النشط */
+.navLink.underlineRed.active::after {
+  transform: scaleX(1); /* إظهار الخط بطول الكلمة */
+}
+
+.textDanger {
+  color: #413e65;
+}
+
+.btn-outline-danger:hover {
+  background: #ff2d55;
+  color: white;
+}
+.navbarToggler:hover {
+  text-decoration: none;
+}
+.textDanger {
+  border-radius: 30px;
+  background: linear-gradient(90deg, #ff5e7e 0%, #ff2d55 100%);
+  width: 150px;
+}

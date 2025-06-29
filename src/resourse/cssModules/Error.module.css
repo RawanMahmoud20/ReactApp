@@ -1,0 +1,91 @@
+        .mainContainer {
+            margin-top: 70px;
+            margin-bottom: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 900px;
+        }
+
+        .errorBox {
+            background: white;
+            padding: 80px 30px;
+            text-align: center;
+            border-radius: 20px;
+            width: 95%;
+            max-width: 1000px;
+            height: 90vh;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+             position: relative; /* ضروري لربط الشريط فيه */
+            padding: 80px 30px 130px; /* نزيد padding تحت ليعمل مساحة للشريط */
+            
+        }
+
+        .errorBox h1 {
+            font-size: 100px;
+            color: #f28e8e;
+            margin-bottom: 20px;
+        }
+
+        .errorBox p {
+            font-size: 18px;
+            color: #F04037;
+        }
+
+        .btnHome {
+            padding: 10px 25px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+            border-radius: 30px;
+            background: linear-gradient(90deg, #F04037 0%, #ff2d55 100%);
+            width: 150px;
+        }
+
+        .btnHome:hover {
+            background-color: #c53030;
+        }
+
+
+
+        .bottomBar{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            border-radius: 0 0 20px 20px;
+            background-color: #e53e3e;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        .bottomBar p { 
+            margin-top: 20px;
+
+            color: white;
+         
+        }
+        .bottomBar h4 {
+            margin-bottom: 10px;
+        }
+
+        .socialIcons {
+            margin-top: 20px;
+        }
+
+        .socialIcons i {
+            font-size: 18px;
+            margin: 0 8px;
+            color: white;
+            background: #e53e3e;
+            padding: 8px;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .socialIcons i:hover {
+            background: #c53030;
+        }

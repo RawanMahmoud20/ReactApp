@@ -1,0 +1,308 @@
+:root {
+    --main-color: #e63946;
+    --background-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-color: #333;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(to right, #f1f1f1, #d4cce3);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+  }
+  
+ 
+  header ,.organizations-section{
+    
+    background: linear-gradient(to right, #f8f9fa, #c5c6ff);
+  }
+
+  
+  .container {
+    max-width: 1000px;
+    margin: 6rem auto 2rem;
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+  }
+ .upload-box i {
+    font-size: 2rem;
+     color: #444;
+ } 
+  .container h2{
+color: #e63946;
+  }
+  .container img {
+    width: 100px;
+    margin-bottom: 1rem;
+  }
+  
+  .container .card-img-top {
+    width: 30%;
+    margin: 2rem;
+  }
+  
+  .info {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  .mb-4 {
+    margin-bottom: 1.5rem !important;
+    font-size: 20px;
+    color: #413E65;
+}
+
+  
+  .styled-textarea::placeholder {
+    color:#333 ;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .styled-textarea:focus {
+    outline: none;
+    border: 1px solid rgb(11 11 11 / 30%);
+    background-color:#474646;
+  }
+
+/* ✅ تصميم البطاقة */
+
+.card-body textarea, input{
+    resize: none;
+    transition: all 0.4s ease;
+    border: 1px solid rgb(11 11 11 / 30%);
+    border-radius: 12px;
+    background-color: rgb(200 195 195 / 8%);
+}
+.styled-textarea:focus {
+    outline: none;
+    border: 1px solid rgb(11 11 11 / 30%);
+    background-color:#474646;
+  }
+.org-card .upload-box {
+    display: flex;
+    flex-direction: column; /* ✅ الترتيب عمودي */
+    color: white;
+    width: 288px;
+margin: 0px;
+      background-color:#595d93;
+
+}
+
+.row.justify-content-center {
+  justify-content: flex-start !important; /* تخلي البطاقات تبدا من اليسار */
+}
+
+
+
+.row .col-md-4 {
+  display: flex;
+}
+
+.org-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.org-card .card-body {
+  flex: 1; /* يخلي النص ياخد المساحة المتبقية */
+}
+
+
+.card-text:last-child {
+  margin-bottom: 0;
+  font-size: 15px;
+}
+
+.card-text{
+color:  #767581;
+margin-top: 12px;
+}
+.org-card:hover {
+    transform: translateY(-5px);
+}
+.org-card  .upload-box{
+  padding: 43px;
+}
+
+.org-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.org-card .card-body {
+    padding: 15px;
+}
+
+.org-card .date {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.org-card .card-title {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+
+.org-card .read-more {
+    color: #e63946;
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+    
+  
+  
+  .rating {
+    color: gold;
+    float: right;
+  }
+  
+  .save-btn {
+    margin-top: 1rem;
+    background: var(--main-color);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  
+  /* ✅ Pagination styling */
+  .pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+  }
+  
+  .pagination {
+  
+    margin-bottom: 30px;
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .pagination .page-link {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    color: black;
+    display: block;
+    padding: 0.5rem 0.9rem;
+    text-decoration: none;
+  }
+  
+  .pagination .active .page-link {
+    background-color: #e63946;
+    color: white;
+  }
+  
+  @media (max-width: 600px) {
+    .container {
+      margin: 1rem;
+      padding: 1rem;
+    }
+  
+    .pagination {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  /*  */
+
+/* OrganizationPage.module.css */
+
+.containerBox {
+  /* لو كان في أي ستايل معين من style.css أو AddCategoryDelails.css */
+  /* مثلا: */
+    margin: 0 auto; /* يوسّط الصندوق */
+  max-width: 1200px; /* حجم مناسب */
+  padding-left: 15px;
+  padding-right: 15px;
+  /* padding: 1rem; */
+}
+
+.uploadBox {
+  background-color: #6c757d; /* لون رمادي */
+  height: 180px;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 500;
+  padding: 20px;
+}
+
+.styledTextarea {
+    width: 679px;
+    padding: 12px 16px;
+    border: 1px solid rgb(11 11 11 / 30%);
+    border-radius: 12px;
+    background-color: rgb(200 195 195 / 8%);
+    color: #fff;
+    font-size: 16px;
+    resize: none;
+    transition: all 0.4s ease;
+    margin-top: 20px;
+}
+
+.orgCard {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: white;
+}
+
+.cardTitle {
+  width: 100%;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  outline: none;
+    margin-top: 5px;
+}
+
+.cardText {
+  resize: none;
+  margin-bottom: 0;
+  font-size: 15px;
+  color:  #767581;
+  margin-top: 12px;
+}
+
+.saveBtn {
+    margin-top: 1rem;
+    background: var(--main-color);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.saveBtn:hover {
+  background-color:rgb(220, 74, 74);
+}

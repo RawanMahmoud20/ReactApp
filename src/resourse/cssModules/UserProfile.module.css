@@ -1,0 +1,84 @@
+/* خلفية الصفحة */
+Body {
+    Background:linear-gradient(90deg, #f5f2fb 0%, #d8d6f2 100%);
+    Background-size: cover;
+    Font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* صورة صغيرة بجانب الاسم */
+  .profileInfo .ProfileImge {
+    Border-radius: 0%;
+    Width: 30px;
+    Height: 30px;
+  }
+  
+  /* الكروت بشكل عام */
+  .profileCard,
+  .aidCard {
+    Background-color: white;
+    Border-radius: 25px;
+    Box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    Padding: 25px;
+    Margin: 20px auto; /* توسيط الكروت تلقائيًا */
+    Max-width: 1000px; /* تصغير العرض */
+    Width: 90%; /* استجابة لجميع الشاشات */
+  }
+  
+  /* كرت البروفايل: ترتيب داخلي */
+  .profileCard {
+    Display: flex;
+    Align-items: center;
+    Justify-content: space-between;
+    Flex-wrap: wrap;
+    height: 200px;
+  }
+  
+  /* ترتيب المحتوى داخل كرت البروفايل */
+  .profileInfo {
+    Display: flex;
+    Align-items: center;
+    Gap: 15px;
+  }
+  
+  /* صورة البروفايل */
+  .profileInfo img {
+    Width: 60px;
+    Height: 60px;
+    Border-radius: 50%;
+    Object-fit: cover;
+  }
+  
+  /* لون الإيميل */
+  .email {
+    Color: #dc3545;
+   padding: 10px ;
+  }
+  
+  /* تنسيق العناوين والفقرات */
+  .aidCard h5,
+  .aidCard p {
+    Color: #413E65;
+    Font-weight: 600;
+  }
+  
+  /* لون خاص للكلمات داخل الفقرات */
+  .aidCard p span {
+    Color: #dc3545;
+    Font-weight: 500;
+  }
+  .loginCover {
+    background: url(../imgs/Userprofile.png) ;
+    background-color: rgba(0, 0, 0, 0);
+    background-size: auto;
+  background-size: cover;
+  height: 350px;
+    width: 1525px;
+  }
+
+.container {
+  margin-top: -165px;
+  background: 0;
+  border-radius: 15px;
+  margin-bottom: 80px;
+  width: 1000px;
+}                                                            

@@ -1,0 +1,52 @@
+
+.formContainer {
+  width: 95%;
+  max-width: 900px;
+  height: 90vh;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  overflow-y: auto;
+  margin-top: 70px;
+  margin-bottom: 30px;
+
+}
+
+.formTitel {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.formTitel img {
+  max-width: 170px;
+  margin-bottom: 10px;
+}
+.formTitel h4 {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: #413e65;
+}
+
+.submitBtn {
+  display: block;
+  width: 280px;
+  margin: 20px auto 0;
+  border-radius: 20px;
+  padding: 6px 15px;
+  font-size: 14px;
+}
+
+Label {
+  font-weight: 500;
+  color: #413e65;
+}
+
+.formContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.formContainer::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}

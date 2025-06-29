@@ -1,0 +1,159 @@
+.organizationsSection {
+  background: linear-gradient(90deg, #f5f2fb 0%, #d8d6f2 100%);
+}
+
+.organizationsSection h5 {
+  font-weight: bold;
+}
+
+.imageWrapper {
+  padding: 15px;
+  border-radius: 10px;
+  margin-left: -253px;
+}
+
+.sectionTitle {
+  border-bottom: 3px solid #e74c3c;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+}
+
+.sectionTitle::after {
+  content: "";
+  display: block;
+  color: #413e65;
+  width: 80px;
+  height: 4px;
+  margin-top: 6px;
+}
+
+.orgLogo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.logoImage {
+  max-width: 100%;
+  height: auto;
+  margin-left: 15px;
+  object-fit: cover;
+}
+
+.orgDescription {
+  color: #555555;
+  font-size: 0.95rem;
+}
+
+.moreBtn {
+  border-radius: 30px;
+  background: linear-gradient(90deg, #ff5e7e 0%, #ff2d55 100%);
+  background-color: rgba(0, 0, 0, 0);
+  width: 130px;
+  color: #fff;
+  border: none;
+  padding: 10px 10px;
+  text-align: center;
+  display: inline-block;
+  font-weight: 500;
+  text-decoration: none;
+  margin-right: 10px;
+}
+@media (max-width: 767.98px) {
+  .organizationsSection {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .sectionTitle {
+    font-size: 1.6rem;
+    text-align: center;
+    border-bottom: none;
+    margin-bottom: 2rem;
+  }
+
+  .imageWrapper,
+  .logoImage {
+    display: none !important; /* إخفاء الصورة الكبيرة */
+  }
+
+  .container {
+    padding: 1rem;
+    margin: 0 auto;
+  }
+
+  .orgBlock {
+    margin-bottom: 2rem;
+  }
+
+  .orgLogo {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 0.5rem auto;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .orgName {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #000;
+  }
+
+  .orgDescription {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 767.98px) {
+  .imageWrapper {
+    display: none; /* إخفاء صورة الشعار على الجوال */
+  }
+
+  .centerOnMobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .orgBlock {
+    text-align: center; /* توسيط النصوص والصور */
+  }
+
+  .orgName {
+    margin-left: 0.5rem;
+  }
+}
+
+
+/* ✅ التابلت (768px إلى 1199.98px) */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .imageWrapper {
+    margin-left: 0; /* الصورة تبدأ من بداية الشاشة */
+    text-align: left;
+  }
+
+  .logoImage {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .container {
+    padding: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+}

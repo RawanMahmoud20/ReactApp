@@ -1,0 +1,320 @@
+:root {
+  --main-color: #e63946;
+  --background-color: #f8f9fa;
+  --card-bg: #ffffff;
+  --text-color: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(to right, #f1f1f1, #d4cce3);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 0;
+  margin: 0;
+}
+
+header,
+.organizations-section {
+  background: linear-gradient(to right, #f8f9fa, #c5c6ff);
+}
+.navbar.navbar-expand-lg.fixed-top.shadow.px-5 {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.nav-link.underline-red {
+  position: relative;
+}
+.nav-link.underline-red::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  background-color: red;
+  margin-top: 1px;
+  border-radius: 20%;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 6rem auto 2rem;
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+}
+.uploadBox {
+  margin-top: 20px;
+  height: 200px;
+  border: 2px solid #413e65;
+  border-radius: 15px;
+  width: 253px;
+}
+.uploadBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+.uploadBox i {
+  font-size: 2rem;
+  color: #444;
+}
+.container h2 {
+  color: #e63946;
+}
+.container img {
+  width: 281px;
+  margin-bottom: 1rem;
+  height: 220px;
+  margin-top: 1rem;
+}
+
+.cardImgTop {
+  width: 30%;
+  margin: 2rem;
+}
+
+.info {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+.mb-4 {
+  margin-bottom: 1.5rem !important;
+  font-size: 20px;
+  color: #413e65;
+}
+.styled-textarea {
+  width: 679px;
+  padding: 12px 16px;
+  border: 1px solid rgb(11 11 11 / 30%);
+  border-radius: 12px;
+  background-color: rgb(200 195 195 / 8%);
+  color: #fff;
+  font-size: 16px;
+  resize: none;
+  transition: all 0.4s ease;
+  margin-top: 20px;
+}
+
+.styled-textarea::placeholder {
+  color: #333;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.styled-textarea:focus {
+  outline: none;
+  border: 1px solid rgb(11 11 11 / 30%);
+  background-color: #474646;
+}
+
+/* ✅ تصميم البطاقة */
+.orgCard {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 450px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  /* margin: 40px; */
+}
+.cardBody textarea,
+input {
+  resize: none;
+  transition: all 0.4s ease;
+  border: 1px solid rgb(11 11 11 / 30%);
+  border-radius: 12px;
+  background-color: rgb(200 195 195 / 8%);
+}
+.styled-textarea:focus {
+  outline: none;
+  border: 1px solid rgb(11 11 11 / 30%);
+  background-color: #474646;
+}
+.orgCard .uploadBox {
+  display: flex;
+  flex-direction: column; /* ✅ الترتيب عمودي */
+  color: white;
+  width: 288px;
+  margin: 0px;
+  background-color: #595d93;
+}
+
+.containeBox {
+  margin: 0 auto; /* يوسّط الصندوق */
+  max-width: 1200px; /* حجم مناسب */
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.row.justify-content-center {
+  justify-content: flex-start !important; /* تخلي البطاقات تبدا من اليسار */
+}
+
+.row .col-md-4 {
+  display: flex;
+}
+
+.orgCard {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.orgCard img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.orgCard .cardBody {
+  flex: 1; /* يخلي النص ياخد المساحة المتبقية */
+}
+
+.uploadBox {
+  height: 200px;
+  background-color: #ccc; /* مؤقت فقط */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  flex-direction: column;
+  word-wrap: break-word;
+  font-size: 1rem;
+}
+.cardText:last-child {
+  margin-bottom: 0;
+  font-size: 15px;
+}
+
+.cardText {
+  color: #767581;
+  margin-top: 12px;
+}
+.orgCard:hover {
+  transform: translateY(-5px);
+}
+.orgCard .uploadBox {
+  padding: 43px;
+}
+
+.orgCard img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.orgCard .cardBody {
+  padding: 15px;
+}
+
+.orgCard .date {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.orgCard .cardTitle {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+.orgCard .read-more {
+  color: #e63946;
+  font-weight: bold;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.rating {
+  color: gold;
+  float: right;
+}
+
+.saveBtn {
+  margin-top: 1rem;
+  text-decoration: none;
+  background: var(--main-color);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* ✅ Pagination styling */
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.pagination {
+  margin-bottom: 30px;
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.pageLink {
+  border-radius: 5px;
+  background-color: #e63946 !important;
+  color: white !important;
+  border: 1px solid #dee2e6;
+  padding: 0.5rem 0.9rem;
+  text-decoration: none;
+  display: block;
+}
+.pageItem {
+  padding-right: 5px;
+}
+.active .pageLink {
+  background-color: #e63946;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
