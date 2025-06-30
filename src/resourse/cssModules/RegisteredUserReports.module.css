@@ -1,0 +1,48 @@
+.title {
+  text-align: center;
+  height: 35px;
+  font-size: 25px;
+  font-weight: bold;
+  color: crimson;
+  vertical-align: 30px;
+}
+
+filter {
+  color: crimson;
+  font-weight: bold;
+  font-size: 15px;
+}
+.registedUserTable {
+  border: #dee2e6;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.registedUserTable > thead > tr {
+  background-color: #d8d6f2 !important;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.registedUserTable > tbody > tr {
+  background: whitesmoke !important;
+}
+
+.registedUserTable th,
+.registedUserTable td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+  min-width: 120px; /* عرض مرن */
+}
+
+.registedUserTable select {
+  width: 100%;
+  padding: 4px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+@media (max-width:450px) {
+  .container{
+      width: 350px;
+  }
+}

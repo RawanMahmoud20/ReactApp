@@ -1,0 +1,148 @@
+/* ContactSection.module.css */
+
+.contactBox {
+  background: linear-gradient(to right, #2c2f59, #44487a);
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 80px;
+  max-width: 1040px;
+  height: 420px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  padding: 0;
+  margin-left: -10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+
+
+  
+}
+
+.contactBox i {
+  margin-right: 10px;
+  color: #e74c3c;
+}
+
+.contactBox p i.fa-phone {
+  margin-right: 10px;
+}
+.section {
+  padding: 80px 0;
+  display: flex;            /* لتفعيل الفلكس */
+  justify-content: center;  /* توسيط أفقي */
+  align-items: center;      /* توسيط رأسي */
+}
+
+.contactBox p i.fa-envelope {
+  color: white;
+  margin-right: 10px;
+}
+
+.contactBox p > i.fa-quote-left {
+  color: white;
+}
+
+.contactText {
+  flex: 0 0 60%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contactImg {
+  flex: 0 0 40%;
+    /* max-width: 320px; */
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 20px 20px 0;
+  display: block;
+}
+
+.contactImg img {
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 20px 20px 0;
+  display: block;
+}
+
+.contactLinks a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 31px;
+  height: 31px;
+  margin-right: 5px;
+  background-color: white;
+  border-radius: 52%;
+  color: #e74c3c;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sectionTitle{
+  border-bottom: 3px solid #e74c3c;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+}
+
+.contactLinks a:hover {
+  background-color: #e74c3c;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width:1300px) {
+    .section{
+      width: 900px;
+
+  }
+  .contactBox {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 17px;
+  }
+  .contactText{
+  margin-top: 45px;
+  }
+  .contactImg > img{
+
+  }
+}
+@media (max-width:850px) {
+  .section{
+      width:650px;
+  }
+.contactBox {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 17px;
+  }
+  .contactImg{
+  max-width: 320px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 20px 20px 0;
+  display: block;
+  }
+}
+
+
+@media (max-width:450px) {
+  .section{
+      width: 300px;
+  }
+  .contactImg{
+    display: none;
+  }
+    .contactBox {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

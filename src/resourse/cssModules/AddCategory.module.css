@@ -1,0 +1,103 @@
+:root {
+  --main-color: #e63946;
+  --background-color: #f8f9fa;
+  --card-bg: #ffffff;
+  --text-color: #333;
+}
+
+body {
+  padding: 0;
+  background: linear-gradient(90deg, #f5f2fb 0%, #d8d6f2 100%);
+  color: var(--text-color);
+}
+.container{
+  width: 900px;
+  margin: 0;
+  margin-top: 100px;
+}
+.title {
+  color: var(--main-color);
+    padding: 30px;
+}
+
+.info {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.cardCustom {
+  background: var(--background-color);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* height: 500px; */
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.plusIcon {
+  color: var(--main-color);
+  font-size: 40px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.rating {
+  color: var(--main-color);
+  float: right;
+}
+
+.saveBtn{
+  background: var(--main-color);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+    margin: 20px;
+}
+
+.pagination .page-link.active,
+.pagination .active > .page-link {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+  color: white;
+}
+.my3 {
+  border-radius: 50%;
+  width: 270px;
+  height: 200px;
+  margin-bottom: 30px;
+}
+.btndanger {
+  border-radius: 30px;
+  background: linear-gradient(90deg, #ff5e7e 0%, #ff2d55 100%);
+  width: 150px;
+}
+p span {
+    Color: #dc3545;
+    Font-weight: 500;
+  }
+      @media (max-width:835px) {
+    .container{
+      width: 750px;
+    }
+  }
+        @media (max-width:750px) {
+    .container{
+      width: 600px;
+    }
+  }
+  @media (max-width:450px) {
+    .container{
+      width: 300px;
+    }
+  }
+
+  

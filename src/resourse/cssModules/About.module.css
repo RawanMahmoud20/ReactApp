@@ -1,0 +1,118 @@
+body{
+    background: linear-gradient(78deg, #f5f2fb 0%, #d8d6f2 150%);
+}
+.textCenter {
+  background: linear-gradient(90deg, #f5f2fb 0%, #d8d6f2 100%);
+}
+
+/* الحاوية الرئيسية */
+.container {
+  margin-top: 0;
+  margin-left: 216px;
+  padding: 2rem 1rem;
+}
+
+/* نص البطل */
+.heroText {
+  padding-top: 0;
+  padding-right: 39px;
+}
+
+/* صورة الغلاف */
+.imgFluidCover {
+  height: 730px;
+  width: 100%;
+  object-fit: cover;
+  margin-top: -33px;
+}
+.loginBtn {
+  border-radius: 30px;
+  background: linear-gradient(90deg, #ff5e7e 0%, #ff2d55 100%);
+  background-color: rgba(0, 0, 0, 0);
+  width: 130px;
+  color: #fff;
+  border: none;
+  padding: 10px 10px;
+  text-align: center;
+  display: inline-block;
+  font-weight: 500;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.loginBtn:hover {
+  opacity: 0.9;
+}
+
+.RegisterBtn{
+  border-radius: 30px;
+  width: 130px;
+  padding: 10px 10px;
+  text-align: center;
+  display: inline-block;
+  font-weight: 500;
+  text-decoration: none;
+  margin-right: 10px;
+}
+/* ========================= */
+/* 🎯 Responsive Adjustments */
+/* ========================= */
+
+/* على الشاشات الصغيرة (أقل من 768px) */
+@media (max-width:450px) {
+    .container {
+    margin-top: 70px;
+    margin-left: 0; 
+    padding: 1rem;
+  }
+    .heroText {
+    padding-right: 0;
+    text-align: center;
+  }
+  .imgFluidCover {
+    display: none; 
+  }
+}
+/* @media (max-width: 767.98px) {
+  .container {
+    margin-top: 70px;
+    margin-left: 0; 
+    padding: 1rem;
+  }
+
+  .heroText {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .imgFluidCover {
+    display: none; 
+  }
+} */
+
+/* على الشاشات المتوسطة (أجهزة التابلت) */
+/* @media (min-width: 768px) and (max-width: 991.98px) {
+  .container {
+    margin-left: 0;
+  }
+
+  .heroText {
+    padding-right: 20px;
+  }
+
+  .imgFluidCover {
+    height: 500px;
+    margin-left: 0;   
+    padding-left: 0;    
+    object-position: left; 
+  }
+} */
+
+/* على الشاشات الكبيرة جدًا */
+/* @media (min-width: 1200px) {
+  .imgFluidCover {
+    height: 800px;
+  }
+} */
+
+

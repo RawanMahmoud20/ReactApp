@@ -1,0 +1,240 @@
+body {
+  background: linear-gradient(90deg, #f5f2fb 0%, #d8d6f2 100%);
+  background-size: cover;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* صورة صغيرة بجانب الاسم */
+.profileInfo .ProfileImge {
+  border-radius: 0%;
+  width: 30px;
+  height: 30px;
+}
+
+/* الكروت بشكل عام */
+.profileCard,
+.aidCard {
+  background-color: white;
+  border-radius: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  margin: 20px auto;
+  max-width: 1000px;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+/* كرت البروفايل: ترتيب داخلي */
+.profileCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  min-height: 200px;
+  gap: 20px;
+}
+
+/* ترتيب المحتوى داخل كرت البروفايل */
+.profileInfo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  flex: 1 1 300px; /* يسمح بالتمدد والانكماش */
+  min-width: 280px;
+
+}
+.infoItem{
+    justify-content: flex-start !important; /* يجعل العناصر تبدأ من اليسار */
+  text-align: left !important;  
+}
+/* صورة البروفايل */
+.profileInfo img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.userDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  align-items: flex-start;
+}
+
+
+/* تنسيق العناوين والفقرات */
+.aidCard h5,
+.aidCard p {
+  color: #413E65;
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+/* لون خاص للكلمات داخل الفقرات */
+.aidCard p span {
+  color: #dc3545;
+  font-weight: 500;
+}
+
+/* خلفية الصفحة */
+.loginCover {
+  background: url(../imgs/Userprofile.png);
+  background-color: rgba(0, 0, 0, 0);
+  background-size: cover;
+  background-position: center;
+  height: 350px;
+  width: 1525px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: -165px auto 80px auto;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 1000px;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+/* أزرار */
+.textDanger,
+.EditBtn,
+.SaveBtn,
+.CancelBtn {
+  border-radius: 30px;
+  background: linear-gradient(90deg, #ff5e7e 0%, #ff2d55 100%);
+  width: 110px;
+  padding: 8px 0;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  margin-top: 100px;
+}
+.SaveBtn,
+.CancelBtn {
+    margin-top: 250px;
+}
+.textDanger:hover,
+.EditBtn:hover,
+.SaveBtn:hover {
+  background: linear-gradient(90deg, #ff2d55 0%, #ff5e7e 100%);
+}
+
+/* وضع الأزرار في صف مع تباعد جيد */
+button + button {
+  margin-left: 15px;
+  margin-top: 0px;
+}
+
+/* تنسيق inputs في وضع التعديل */
+.EditInput {
+  display: block;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.375rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  width: 250px;
+  box-sizing: border-box;
+}
+
+/* تعديل المسافات في الصفوف */
+.profileInfo > div {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ميديا كويريز لتحسين التجاوب */
+@media (max-width: 992px) {
+
+  .profileCard {
+    flex-direction: column;
+    align-items: flex-start; /* محاذاة من اليسار */
+    gap: 15px;
+    height: auto;
+
+  }
+
+  .profileInfo {
+    text-align: left;
+    flex: 0px; 
+  }
+.profileInfo > i{
+   align-self: center;
+}
+  .profileInfo > div {
+    flex-direction: column; /* ترتيب المعلومات تحت بعضها */
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .textDanger,
+  .EditBtn,
+  .SaveBtn,
+  .CancelBtn {
+    width: 100%;
+    max-width: none;
+    margin-top: 0px; 
+  }
+}
+
+@media (max-width: 850px) {
+
+  .profileCard {
+    width: 750px;
+
+  }
+
+  .profileInfo {
+    text-align: left;
+  }
+.profileInfo > i{
+   align-self: center;
+}
+  .profileInfo > div {
+    flex-direction: column; /* ترتيب المعلومات تحت بعضها */
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .textDanger,
+  .EditBtn,
+  .SaveBtn,
+  .CancelBtn {
+    width: 100%;
+    max-width: none;
+    margin-top: 0px; 
+  }
+
+}
+
+@media (max-width: 450px) {
+    .profileCard {
+    width: 300px;
+
+  }
+  .infoItem{
+      font-size: 11px;
+  }
+  .aidCard{
+    width: 300px;
+  }
+  .profileInfo > i {
+      font-size: 20px;
+  }
+}
+
