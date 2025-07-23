@@ -3,81 +3,81 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "../Components/NavBar";
 import Logo from "../resourse/imgs/Red Crescent.png";
-import health from "../resourse/imgs/health.jpg";
-import Food from "../resourse/imgs/Food.jpg";
-import Homeless from "../resourse/imgs/homeless.jpg";
-import Financial from "../resourse/imgs/Financial .jpg";
+
 import AddCategoryStyle from "../resourse/cssModules/AddCategory.module.css";
-import { NavLink } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { CardContext } from "../Context/CardContext";
 
 const RedCrescentDetailsForIndviual = () => {
+  const { cards, setCards } = useContext(CardContext);
+  // استرجاع البيانات من localStorage عند أول تحميل
+
+  useEffect(() => {
+    const storedCards = localStorage.getItem("cards");
+    if (storedCards) {
+      setCards(JSON.parse(storedCards));
+    }
+  }, []);
   return (
     <Fragment>
       <NavBar />
-      <main className={`${AddCategoryStyle.container} my-5 p-4 bg-white rounded-4 text-center shadow`}>
-        <h2 className={`${AddCategoryStyle.title}`}>Palestine Red Crescent Society</h2>
-        <img src={Logo} alt="Red Crescent Logo" className={`my-3 ${AddCategoryStyle.my3}`} />
-
+      <main
+        className={`${AddCategoryStyle.container} my-5 p-4 bg-white rounded-4 text-center shadow`}
+      >
+        <h2 className={`${AddCategoryStyle.title}`}>
+          Palestine Red Crescent Society
+        </h2>
+        <img
+          src={Logo}
+          alt="Red Crescent Logo"
+          className={AddCategoryStyle.icon}
+          style={{
+            objectFit: "cover",
+            height: "200px",
+            width: "220px",
+            marginBottom: "20px",
+          }}
+        />
         <p className={`${AddCategoryStyle.info}`}>
           An independent, recognized National Society within the
           <br />
           Red Cross and Red Crescent Movement.
         </p>
-        <div className={`card ${AddCategoryStyle.cardCustom} p-3 mb-3 text-start`} >
-          <h3>
-            <img src={health} className={`${AddCategoryStyle.icon}`} alt="logo" />
-            Medical Assistance
-            <span className={`${AddCategoryStyle.rating}`}>★★★★★</span>
-          </h3>
-          <p>
-            We help cover treatment costs and essential medications for those in
-            need
-          </p>
-          <NavLink className={`btn ${AddCategoryStyle.btndanger} text-white ms-2`} to="/CitizenRegistration">
-            register
-          </NavLink>
-        </div>
-        <div className={`card ${AddCategoryStyle.cardCustom} p-3 mb-3 text-start`}>
-          <h3>
-            <img src={Food} className={`${AddCategoryStyle.icon}`} alt="logo" />
-            Food Assistance
-            <span className={`${AddCategoryStyle.rating}`}>★★★★★</span>
-          </h3>
-          <p>
-            We provide food packages to needy families to ensure food security
-          </p>
-          <NavLink className={`btn ${AddCategoryStyle.btndanger} text-white ms-2`} to="/CitizenRegistration">
-            register
-          </NavLink>
-        </div>
-        <div className={`card  ${AddCategoryStyle.cardCustom} p-3 mb-3 text-start`}>
-          <h3>
-            <img src={Homeless} className={`${AddCategoryStyle.icon}`} alt="logo" />
-            Housing Assistance
-            <span className={`${AddCategoryStyle.rating}`}>★★★★★</span>
-          </h3>
-          <p>
-            We offer housing support through rent assistance or safe temporary
-            shelter
-          </p>
-          <NavLink className={`btn ${AddCategoryStyle.btndanger} text-white ms-2`} to="/CitizenRegistration">
-            register
-          </NavLink>
-        </div>
-        <div className={`card  ${AddCategoryStyle.cardCustom} p-3 mb-3 text-start`}>
-          <h3>
-            <img src={Financial} className={`${AddCategoryStyle.icon}`}  alt="logo" />
-            Financial Assistance
-            <span className={`${AddCategoryStyle.rating}`}>★★★★★</span>
-          </h3>
-          <p>
-            We provide financial support to ease the living burdens of those in
-            need
-          </p>
-          <NavLink className={`btn ${AddCategoryStyle.btndanger} text-white ms-2`} to="/CitizenRegistration">
-            register
-          </NavLink>
-        </div>
+        {cards.length === 0 ? (
+          <p>No categories added yet.</p>
+        ) : (
+          cards.map((card, index) => (
+            <div
+              key={index}
+              className={`card ${AddCategoryStyle.cardCustom} p-3 mb-3 text-start`}
+            >
+              <h3 className="d-flex align-items-center">
+                <img
+                  src={card.image}
+                  className={`${AddCategoryStyle.icon} me-3`}
+                  alt={card.name}
+                  style={{
+                    width: "50px",
+                    height: "50px",
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                  }}
+                />
+                {card.name}
+                <span className={`${AddCategoryStyle.rating} ms-auto`}>
+                  ★★★★★
+                </span>
+              </h3>
+              <p>{card.description}</p>
+              <a
+                href="/CitizenRegistration"
+                className={`btn ${AddCategoryStyle.btndanger} text-white ms-2`}
+              >
+                Register
+              </a>
+            </div>
+          ))
+        )}
       </main>
     </Fragment>
   );

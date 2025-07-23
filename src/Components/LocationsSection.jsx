@@ -1,8 +1,14 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import vibrantBackground from "../resourse/imgs/cover/vibrant-background.png";
 import styles from "../resourse/cssModules/LocationsSection.module.css";
+import { NotificationContext } from "../Context/NotificationContext";
 
 const LocationsSection = () => {
+    const { notificationData } = useContext(NotificationContext);
+    const latestNotification = notificationData.length > 0 ? notificationData[notificationData.length - 1] : null;
+
+    // console.log("notificationData:", notificationData);
+
   return (
     <Fragment>
       <section
@@ -55,19 +61,18 @@ const LocationsSection = () => {
       <ul className="mb-0 ps-3">
         <strong className="fs-5 text-dark">The Location</strong>
         <li>
-          <strong>Aid Name:</strong> Example Aid
+          <strong>Aid Name:</strong> {latestNotification.orgName}
         </li>
         <li>
-          <strong>Address:</strong> Gaza City
+          <strong>Address:</strong> {latestNotification.location}
         </li>
         <li>
-          <strong>Date:</strong> May 25, 2025
+          <strong>Date:</strong> {latestNotification.date}
         </li>
       </ul>
     </div>
   </div>
 </div>
-
         </div>
       </section>
     </Fragment>

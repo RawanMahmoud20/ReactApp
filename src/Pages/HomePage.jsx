@@ -8,11 +8,14 @@ import LocationsSection from "../Components/LocationsSection";
 import ContactSection from "../Components/ContactSection";
 import { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
+import OrgNavBar from "../Components/OrgNavBar";
 const HomePage = () => {
   let auth = useContext(AuthContext);
+  const userType = localStorage.getItem("userType");
+
   return (
     <Fragment>
-      <NavBar />
+  {userType === "organization" ? <OrgNavBar /> : <NavBar />}
       <About />
       <OrganizationsSection />
       <LocationsSection />

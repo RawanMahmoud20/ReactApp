@@ -1,4 +1,4 @@
-import { Fragment } from "react/jsx-runtime";
+import { Fragment, useEffect, useState } from "react";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "../Components/NavBar";
@@ -9,6 +9,95 @@ import UserPageStyle from "../resourse/cssModules/OurOrganizations.module.css";
 import { NavLink } from "react-router-dom";
 
 const UserPage = () => {
+  const [newOrgs, setNewOrgs] = useState([]);
+
+  useEffect(() => {
+    const savedOrgs = localStorage.getItem("newOrgs");
+    if (savedOrgs) {
+      setNewOrgs(JSON.parse(savedOrgs));
+    }
+  }, []);
+
+  const handleDelete = (indexToDelete) => {
+    const updatedOrgs = newOrgs.filter((_, i) => i !== indexToDelete);
+    setNewOrgs(updatedOrgs);
+    localStorage.setItem("newOrgs", JSON.stringify(updatedOrgs));
+  };
+
+  const fixedOrgs = [
+    {
+      img: UN,
+      date: "June 11, 1868",
+      title: "Can hope survive without UNRWA’s support for refugees ?!",
+      desc: `We provide assistance, protection, and advocacy to over 
+            5.9 million Palestine refugees.`,
+      link: "/UNDetailsForIndviual",
+    },
+    {
+      img: RedCrescent,
+      date: "June 11, 1868",
+      title: "How can be the first hand to reach people in times of crisis !",
+      desc: `An independent, recognized National Society within the 
+            Red Cross and Red Crescent Movement.`,
+      link: "/RedCrescentDetailsForIndviual",
+    },
+    {
+      img: Uniesf,
+      date: "June 11, 1868",
+      title: "How did we get 1M+ visitors in 30 days without anything !",
+      desc: `We will remain and continue supporting children. 
+            If others step back, who will stand for them?`,
+      link: "/UnisefDetailsForIndviual",
+    },
+  ];
+
+  const renderCard = (org, index, isNew = false) => (
+    <div
+      key={index}
+      className={`${UserPageStyle.orgCard} gx-5`}
+      style={{ width: "18rem", marginBottom: "20px", height: "490px" }}
+    >
+      <img
+        src={org.image || org.img || "default-image.png"}
+        className="card-img-top"
+        alt={org.name || org.title || "Organization"}
+      />
+      <div className={`${UserPageStyle.cardBody}`}>
+        <p className={`${UserPageStyle.cardText}`}>
+          {org.date || "Date not available"}
+        </p>
+        <p className={`${UserPageStyle.cardTitle}`}>{org.name || org.title}</p>
+        <p className={`${UserPageStyle.cardText}`}>
+          {org.description || org.desc}
+        </p>
+
+        <div className={`${UserPageStyle.cardActions}`}>
+          {isNew && (
+            <button
+              className={UserPageStyle.deleteBtn}
+              onClick={() => handleDelete(index)}
+            >
+              Delete
+            </button>
+          )}
+          <NavLink
+            to={
+              org.link && org.link.trim() !== ""
+                ? org.link
+                : org.name
+                ? `/OrgDetails/${org.name.replace(/\s+/g, "")}`
+                : "/Error"
+            }
+            className={UserPageStyle.readMore}
+          >
+            Show More
+            {console.log("org.link", org.link) }
+          </NavLink>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <Fragment>
       <NavBar />
@@ -20,125 +109,19 @@ const UserPage = () => {
         </p>
       </section>
 
-      <div>
-        <div className="row justify-content-center">
-          <div
-            className={`${UserPageStyle.orgCard} gx-5`}
-            style={{ width: "18rem" }}
-          >
-            <img
-              src={UN}
-              className="card-img-top"
-              alt="Org 1"
-              style={{ padding: "0px" }}
-            />
-            <div className={`${UserPageStyle.cardBody}`}>
-              <p className={`${UserPageStyle.cardText}`}>June 11, 1868</p>
-              <p className={`${UserPageStyle.cardTitle}`}>
-                Can hope survive without UNRWA’s support for refugees ?!
-              </p>
-              <p className={`${UserPageStyle.cardText}`}>
-                We provide assistance, protection, and advocacy to over <br />
-                5.9 million Palestine refugees.
-              </p>
-              <NavLink
-                to="/UNDetailsForIndviual"
-                className={`${UserPageStyle.readMore}`}
-              >
-                Show More
-              </NavLink>
-            </div>
-          </div>
-
-          <div
-            className={`${UserPageStyle.orgCard} gx-5`}
-            style={{ width: "18rem" }}
-          >
-            <img src={RedCrescent} className="card-img-top" alt="Org 2" />
-            <div className={`${UserPageStyle.cardBody}`}>
-              <p className={`${UserPageStyle.cardText}`}>June 11, 1868</p>
-              <p className={`${UserPageStyle.cardTitle}`}>
-                How can be the first hand to reach people in times of crisis !
-              </p>
-              <p className={`${UserPageStyle.cardText}`}>
-                An independent, recognized National Society within the <br />
-                Red Cross and Red Crescent Movement.
-              </p>
-
-              <NavLink
-                to="/RedCrescentDetailsForIndviual"
-                className={`${UserPageStyle.readMore}`}
-              >
-                Show More
-              </NavLink>
-            </div>
-          </div>
-
-          <div
-            className={`${UserPageStyle.orgCard} gx-5`}
-            style={{ width: "18rem" }}
-          >
-            <img src={Uniesf} className="card-img-top" alt="Org 3" />
-            <div className={`${UserPageStyle.cardBody}`}>
-              <p className={`${UserPageStyle.cardText}`}>June 11, 1868</p>
-              <p className={`${UserPageStyle.cardTitle}`}>
-                How did we get 1M+ visitors in 30 days without anything !
-              </p>
-              <p className={`${UserPageStyle.cardText}`}>
-                We will remain and continue supporting children. <br />
-                If others step back, who will stand for them?
-              </p>
-
-              <NavLink
-                to="/UnisefDetailsForIndviual"
-                className={`${UserPageStyle.readMore}`}
-              >
-                Show More
-              </NavLink>
-            </div>
-          </div>
-        </div>
-        <div className="mt-5 d-flex justify-content-center">
-          <ul className="pagination">
-            <li className={`${UserPageStyle.pageItem}`}>
-              <a className={`page-link ${UserPageStyle.pageLink}`} href="#">
-                &lt;
-              </a>
-            </li>
-            <li className={`${UserPageStyle.pageItem} active`}>
-              <a className={`page-link ${UserPageStyle.pageLink}`} href="#">
-                1
-              </a>
-            </li>
-            <li className={`${UserPageStyle.pageItem}`}>
-              <a className={`page-link ${UserPageStyle.pageLink}`} href="#">
-                2
-              </a>
-            </li>
-            <li className={`${UserPageStyle.pageItem}`}>
-              <a className={`page-link ${UserPageStyle.pageLink}`} href="#">
-                3
-              </a>
-            </li>
-            <li className={`${UserPageStyle.pageItem}`}>
-              <a className={`page-link ${UserPageStyle.pageLink}`} href="#">
-                ...
-              </a>
-            </li>
-            <li className={`${UserPageStyle.pageItem}`}>
-              <a className={`page-link ${UserPageStyle.pageLink}`} href="#">
-                9
-              </a>
-            </li>
-            <li className={`${UserPageStyle.pageItem}`}>
-              <a className={`page-link ${UserPageStyle.pageLink}`} href="#">
-                &gt;
-              </a>
-            </li>
-          </ul>
-        </div>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "1.5rem",
+        }}
+      >
+        {newOrgs.map((org, i) => renderCard(org, i, true))}
+        {fixedOrgs.map((org, i) => renderCard(org, i + newOrgs.length, false))}
       </div>
     </Fragment>
   );
 };
+
 export default UserPage;

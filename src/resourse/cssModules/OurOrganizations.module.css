@@ -48,7 +48,18 @@ body {
 .cardText{
 color:  #767581;
 margin-top: 12px;
+white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.5;
+  font-size: 0.92rem;
+  margin-bottom: 12px;
 }
+.cardActions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: auto;
+  }
 .orgCard:hover {
     transform: translateY(-5px);
 }
@@ -80,8 +91,29 @@ margin-top: 12px;
     font-weight: bold;
     font-size: 0.85rem;
     text-decoration: none;
+    padding-inline: 80px;
+    margin-top: 25px;
+    text-align: center;
+    /* padding-inline: 0px !important; override القديم */
 }
+.deleteBtn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 7px;
+    width: 200px;
+    font-size: 0.85rem;
+    margin-top: 10px;
+    cursor: pointer;
+    align-self: center;
 
+    text-align: center;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+}
 /* ✅ الـ Pagination */
 
 

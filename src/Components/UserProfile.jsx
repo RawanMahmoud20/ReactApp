@@ -11,6 +11,7 @@ import { auth } from "../fireBase/firebase";
 import { updateEmail, updateProfile } from "firebase/auth";
 
 const UserProfile = () => {
+  const users = JSON.parse(localStorage.getItem("registeredUsers") || "[]");
   let auth = useContext(AuthContext);
   let { user, updateUserInfo } = useContext(AuthContext);
   const [isEditing, setIsEditing] = useState(false); //لتحديد ما إذا كان المستخدم في وضع التعديل.
@@ -187,7 +188,7 @@ const handleSave = async () => {
               Category: <span>Exxxxxx</span>
             </p>
             <p>
-              Registration date: <span>Exxxxxx</span>
+              Registration date: <span>{users[0].registrationDate}</span>
             </p>
             <p>
               Registration status: <span>Exxxxxx</span>

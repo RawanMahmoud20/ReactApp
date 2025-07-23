@@ -21,6 +21,8 @@ const { users, setUsers } = useContext(RegisteredUsersContext);
       setUsers(prevUsers => {
       const updatedUser = [...prevUsers, newUser];
       console.log("Users after add:", updatedUser);
+      // ✅ حفظهم في localStorage
+      localStorage.setItem("registeredUsers", JSON.stringify(updatedUser));
       return updatedUser;
     });
       }
@@ -41,6 +43,7 @@ const { users, setUsers } = useContext(RegisteredUsersContext);
   };
 
   let NewUser = () =>{
+    const todayDate = new Date().toISOString().split("T")[0]; // yyyy-mm-dd
     return{
       id: Date.now(),
       firstName: firstNameRef.current.value,
@@ -50,7 +53,8 @@ const { users, setUsers } = useContext(RegisteredUsersContext);
       memberNumber : memberNumberRef.current.value,
       gender : genderRef.current.value,
       location : locationRef.current.value ,
-      status: "waiting" // مبدئيًا
+      status: "waiting" ,// مبدئيًا
+      registrationDate: todayDate, // ✅ تاريخ التسجيل
     };
   };
   return (

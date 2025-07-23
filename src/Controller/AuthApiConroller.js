@@ -23,7 +23,12 @@ class AuthApiConroller {
       console.log(response);
       console.log(response.data.idToken);
       let token = response.data.idToken;
-      let apiResponse = new ApiResponse("Logged in Successfully",true,response.data,token);
+      let apiResponse = new ApiResponse(
+        "Logged in Successfully",
+        true,
+        response.data,
+        token
+      );
       localStorage.setItem("Token", JSON.stringify(token));
       // console.log(apiResponse);
       return apiResponse;
@@ -50,16 +55,22 @@ class AuthApiConroller {
       );
       console.log(response);
       let apiResponse = new ApiResponse("register in Succssfully ", true);
-      
       apiResponse.token = response.data.idToken;
       console.log(apiResponse.token);
       return apiResponse;
     } catch (error) {
-    //   console.log(error);
-    const errorMessage = error.response?.data?.error?.message || error.message;
-  console.log("Firebase Error Message:", errorMessage);
-  return new ApiResponse(false, errorMessage);
-    //   return new ApiResponse(false, error.message);
+      const errorMessage =
+        error.response?.data?.error?.message || error.message;
+
+      if (errorMessage === "EMAIL_EXISTS") {
+        return new ApiResponse(
+          false,
+          "رقم الهوية مستخدم من قبل، الرجاء استخدام رقم آخر"
+        );
+      }
+
+      console.log("Firebase Error Message:", errorMessage);
+      return new ApiResponse(false, errorMessage);
     }
   };
 }

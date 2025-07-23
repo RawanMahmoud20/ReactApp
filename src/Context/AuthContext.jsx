@@ -7,9 +7,12 @@ export const AuthContext = createContext({
   updateUserInfo: (data) => {},
   token: null,
   UpdateToken: (token) => {},
+  registerAs: "",                  
+  setRegisterAs: (value) => {},
 });
 
 export const AuthContextProvider = (props) => {
+
   // نبدأ حالة loggedIn بالقيمة من localStorage مباشرة أو false
   const [loggedIn, setLoggedIn] = useState(() => {
     return localStorage.getItem("loggedIn") === "true";
@@ -23,6 +26,7 @@ export const AuthContextProvider = (props) => {
   const [token, setToken] = useState(() => {
     return localStorage.getItem("Token") || null;
   });
+const [registerAs, setRegisterAs] = useState("");
 
   const updateloggedIn = (status) => {
     setLoggedIn(status);
@@ -38,7 +42,7 @@ export const AuthContextProvider = (props) => {
     setToken(newToken);
     localStorage.setItem("Token", newToken);
   };
-
+const updateRegisterAs = (role) => setRegisterAs(role);
   return (
     <AuthContext.Provider
       value={{
@@ -48,6 +52,8 @@ export const AuthContextProvider = (props) => {
         updateUserInfo,
         token,
         UpdateToken,
+        registerAs,
+        updateRegisterAs
       }}
     >
       {props.children}
