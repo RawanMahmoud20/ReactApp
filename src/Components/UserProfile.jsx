@@ -22,6 +22,7 @@ const UserProfile = () => {
     IdNumber: user?.IdNumber || "",
   });
   const navigate = useNavigate();
+   
   //عند تعديل أي input، نحفظ القيمة الجديدة في editedData.
   const handleInputChange = (element) => {
     const { name, value } = element.target;
@@ -182,34 +183,13 @@ const handleSave = async () => {
           <div className={`aid-card ${UserProfileStyle.aidCard}`}>
             <h5>Registered aid information</h5>
             <p>
-              Organization name: <span>Exxxxxx</span>
-            </p>
-            <p>
-              Category: <span>Exxxxxx</span>
-            </p>
-            <p>
               Registration date: <span>{users[0].registrationDate}</span>
             </p>
             <p>
-              Registration status: <span>Exxxxxx</span>
+              Registration status: <span>{users[0].status}</span>
             </p>
           </div>
 
-          <div className={`aid-card ${UserProfileStyle.aidCard}`}>
-            <h5>Registered aid information</h5>
-            <p>
-              Organization name: <span>Exxxxxx</span>
-            </p>
-            <p>
-              Category: <span>Exxxxxx</span>
-            </p>
-            <p>
-              Registration date: <span>Exxxxxx</span>
-            </p>
-            <p>
-              Registration status: <span>Exxxxxx</span>
-            </p>
-          </div>
         </div>
       </Fragment>
     );

@@ -4,6 +4,7 @@ import Logo from "../resourse/imgs/Red Crescent.png";
 import CitizenRegistrationStyle from "../resourse/cssModules/CitizenRegistration.module.css";
 import { useContext, useRef } from "react";
 import { RegisteredUsersContext } from "../Context/RegisteredUsersContext";
+import Swal from "sweetalert2";
 const CitizenRegistration = (props) => {
   let firstNameRef = useRef();
   let lastNameRef = useRef();
@@ -12,21 +13,47 @@ const CitizenRegistration = (props) => {
   let memberNumberRef = useRef();
   let genderRef = useRef();
   let locationRef = useRef();
+    let fatherNameRef = useRef();
+  let grandFatherRef = useRef();
+  let birthDateRef = useRef();
+  let maritalStatusRef = useRef();
+  let originalGovRef = useRef();
+  let altPhoneRef = useRef();
+  let currentGovRef = useRef();
+  let currentCityRef = useRef();
+  let nearestPlaceRef = useRef();
+  let age0_2Ref = useRef();
+  let age3_5Ref = useRef();
+  let age6_18Ref = useRef();
+  let age19_59Ref = useRef();
+  let chronicRef = useRef();
+  let disabilityRef = useRef();
+  let breadwinnerRef = useRef();
+  let housingStatusRef = useRef();
 const { users, setUsers } = useContext(RegisteredUsersContext);
 
-  let SaveUserSubmitHandler = (event) => {
-    event.preventDefault();
-    if (CheckData()) {
-      const newUser = NewUser();
-      setUsers(prevUsers => {
+let SaveUserSubmitHandler = (event) => {
+  event.preventDefault();
+  if (CheckData()) {
+    const newUser = NewUser();
+    setUsers((prevUsers) => {
       const updatedUser = [...prevUsers, newUser];
-      console.log("Users after add:", updatedUser);
-      // ✅ حفظهم في localStorage
       localStorage.setItem("registeredUsers", JSON.stringify(updatedUser));
+
+      // ✅ عرض SweetAlert هنا
+      Swal.fire({
+        icon: 'success',
+        title: 'Registration Successful!',
+        text: 'The citizen has been registered successfully.',
+        confirmButtonColor: '#d33',
+      });
+        ClearFields(); // ✅ مسح الحقول
+
       return updatedUser;
     });
-      }
-  };
+  }
+};
+
   let CheckData = () => {
     if (
       firstNameRef.current.value != "" &&
@@ -57,6 +84,34 @@ const { users, setUsers } = useContext(RegisteredUsersContext);
       registrationDate: todayDate, // ✅ تاريخ التسجيل
     };
   };
+   // ✅ دالة مسح كل الحقول
+  let ClearFields = () => {
+    
+      firstNameRef.current.value = "";
+      lastNameRef.current.value = "";
+      idNumberRef.current.value = "";
+      phoneNumberRef.current.value = "";
+      memberNumberRef.current.value = "";
+      genderRef.current.value = "";
+      locationRef.current.value = "";
+      fatherNameRef.current.value = "";
+      grandFatherRef.current.value = "";
+      birthDateRef.current.value = "";
+      maritalStatusRef.current.value = "";
+      originalGovRef.current.value = "";
+      altPhoneRef.current.value = "";
+      currentGovRef.current.value = "";
+      currentCityRef.current.value = "";
+      nearestPlaceRef.current.value = "";
+      age0_2Ref.current.value = "";
+      age3_5Ref.current.value = "";
+      age6_18Ref.current.value = "";
+      age19_59Ref.current.value = "";
+      chronicRef.current.value = "";
+      disabilityRef.current.value = "";
+      breadwinnerRef.current.value = "";
+      housingStatusRef.current.value = "";
+  }
   return (
     <Fragment>
       <NavBar />
@@ -84,11 +139,11 @@ const { users, setUsers } = useContext(RegisteredUsersContext);
             </div>
             <div className="col-md-3">
               <label className="form-label">Father Name</label>
-              <input type="text" className="form-control" />
+              <input type="text" className="form-control" ref={fatherNameRef}/>
             </div>
             <div className="col-md-3">
               <label className="form-label">Grand Father</label>
-              <input type="text" className="form-control" />
+              <input type="text" className="form-control" ref={grandFatherRef} />
             </div>
             <div className="col-md-3">
               <label className="form-label">Last Name</label>
@@ -96,11 +151,11 @@ const { users, setUsers } = useContext(RegisteredUsersContext);
             </div>
             <div className="col-md-3">
               <label className="form-label">Date of Birth</label>
-              <input type="date" className="form-control" />
+              <input type="date" className="form-control" ref={birthDateRef}/>
             </div>
             <div className="col-md-3">
               <label className="form-label">Marital Status</label>
-              <select className="form-select">
+              <select className="form-select" ref={maritalStatusRef}>
                 <option selected disabled>
                   Choose…
                 </option>
@@ -111,7 +166,7 @@ const { users, setUsers } = useContext(RegisteredUsersContext);
             </div>
             <div className="col-md-3">
               <label className="form-label">Original Governorate</label>
-              <select className="form-select">
+              <select className="form-select" ref={originalGovRef}>
                 <option selected disabled>
                   gaza , north
                 </option>
@@ -135,11 +190,11 @@ const { users, setUsers } = useContext(RegisteredUsersContext);
             </div>
             <div className="col-md-3">
               <label className="form-label">Alternative Number</label>
-              <input type="text" className="form-control" />
+              <input type="text" className="form-control" ref={altPhoneRef}/>
             </div>
             <div className="col-md-3">
               <label className="form-label">Current Governorate</label>
-              <select className="form-select">
+              <select className="form-select" ref={currentGovRef}>
                 <option selected disabled>
                   {" "}
                   Select the governorate{" "}
@@ -148,13 +203,13 @@ const { users, setUsers } = useContext(RegisteredUsersContext);
             </div>
             <div className="col-md-3">
               <label className="form-label">Current City</label>
-              <input type="text" className="form-control" />
+              <input type="text" className="form-control" ref={currentCityRef}/>
             </div>
             <div className="col-md-3">
               <label className="form-label">The Location</label>
 
               <select className="form-select" ref={locationRef}>
-                <option selected disabled>
+                <option selected >
                   {" "}
                   Sheikh Radwan{" "}
                 </option>
@@ -162,7 +217,7 @@ const { users, setUsers } = useContext(RegisteredUsersContext);
             </div>
             <div className="col-md-3">
               <label className="form-label">The Nearest Place</label>
-              <input type="text" className="form-control" />
+              <input type="text" className="form-control" ref={nearestPlaceRef}/>
             </div>
             <div className="col-md-3">
               <label className="form-label">member Number </label>
@@ -170,35 +225,35 @@ const { users, setUsers } = useContext(RegisteredUsersContext);
             </div>
             <div className="col-md-3">
               <label className="form-label">Age Group 0-2 Years</label>
-              <input type="number" className="form-control" />
+              <input type="number" className="form-control" ref={age0_2Ref}/>
             </div>
             <div className="col-md-3">
               <label className="form-label">Age Group 3-5 Years</label>
-              <input type="number" className="form-control" />
+              <input type="number" className="form-control" ref={age3_5Ref}/>
             </div>
             <div className="col-md-3">
               <label className="form-label">Age Group 6-18 Years</label>
-              <input type="number" className="form-control" />
+              <input type="number" className="form-control" ref={age6_18Ref}/>
             </div>
             <div className="col-md-3">
               <label className="form-label">Age Group 19-59 Years</label>
-              <input type="number" className="form-control" />
+              <input type="number" className="form-control" ref={age19_59Ref}/>
             </div>
             <div className="col-md-3">
               <label className="form-label">People with Chronic Diseases</label>
-              <input type="number" className="form-control" />
+              <input type="number" className="form-control" ref={chronicRef} />
             </div>
             <div className="col-md-3">
               <label className="form-label">People with Disabilities</label>
-              <input type="number" className="form-control" />
+              <input type="number" className="form-control" ref={disabilityRef}/>
             </div>
             <div className="col-md-3">
               <label className="form-label">Breadwinner</label>
-              <input type="text" className="form-control" />
+              <input type="text" className="form-control" ref={breadwinnerRef}/>
             </div>
             <div className="col-md-3">
               <label className="form-label">Housing Status</label>
-              <input type="text" className="form-control" />
+              <input type="text" className="form-control" ref={housingStatusRef}/>
             </div>
           </div>
 

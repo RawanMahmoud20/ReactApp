@@ -4,6 +4,8 @@ import React, { createContext, useEffect, useState } from "react";
 export const NotificationContext = createContext({
   notificationData: [],
   setNotificationData: () => {},
+  // unreadNotifications: 0,
+  // setUnreadNotifications: () => {},
 });
 
 export const NotificationProvider = (props) => {
@@ -12,11 +14,16 @@ export const NotificationProvider = (props) => {
     const savedNotifications = localStorage.getItem("notificationData");
     return savedNotifications ? JSON.parse(savedNotifications) : [];
   });
-  const [unreadNotifications, setUnreadNotifications] = useState(0);
+  const [unreadNotifications, setUnreadNotifications] = useState(() => {
+    const savedCount = localStorage.getItem("unreadNotifications");
+    return savedCount ? Number(savedCount) : 0;
+  });
+
    // كل ما تتغير notificationData نحفظها في localStorage
   useEffect(() => {
     localStorage.setItem("notificationData", JSON.stringify(notificationData));
-  }, [notificationData]);
+    localStorage.setItem("unreadNotifications", unreadNotifications);
+  }, [notificationData ,unreadNotifications]);
 
   return (
     <NotificationContext.Provider 

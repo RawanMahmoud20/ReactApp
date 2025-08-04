@@ -7,9 +7,13 @@ import RedCrescent from "../resourse/imgs/Red Crescent.png";
 import Uniesf from "../resourse/imgs/Uniesf.jpg";
 import UserPageStyle from "../resourse/cssModules/OurOrganizations.module.css";
 import { NavLink } from "react-router-dom";
+import OrgNavBar from "../Components/OrgNavBar";
 
 const UserPage = () => {
   const [newOrgs, setNewOrgs] = useState([]);
+    // استخراج نوع المستخدم
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  const userType = userData?.userType;
 
   useEffect(() => {
     const savedOrgs = localStorage.getItem("newOrgs");
@@ -72,14 +76,14 @@ const UserPage = () => {
         </p>
 
         <div className={`${UserPageStyle.cardActions}`}>
-          {isNew && (
-            <button
-              className={UserPageStyle.deleteBtn}
-              onClick={() => handleDelete(index)}
-            >
-              Delete
-            </button>
-          )}
+          {isNew && userType === "Organization" && (
+          <button
+            className={UserPageStyle.deleteBtn}
+            onClick={() => handleDelete(index)}
+          >
+            Delete
+          </button>
+        )}
           <NavLink
             to={
               org.link && org.link.trim() !== ""
@@ -100,7 +104,7 @@ const UserPage = () => {
 
   return (
     <Fragment>
-      <NavBar />
+      {userType === "Organization" ? <OrgNavBar /> : <NavBar />}
       <section className={`${UserPageStyle.sectionTitle}`}>
         <h2>Organizations</h2>
         <p className="fs-5">

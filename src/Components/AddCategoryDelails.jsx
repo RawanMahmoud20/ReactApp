@@ -6,13 +6,14 @@ import AddCategoryDelailsStyle from "../resourse/cssModules/AddCategoryDelails.m
 import RedCrescent from "../resourse/imgs/Red Crescent.png";
 import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import OrgNavBar from "./OrgNavBar";
 
 const AddCategoryDelails = () => {
   const { cards, setCards } = useContext(CardContext);
   const { orgName } = useParams(); // اسم المنظمة من الرابط\
   const [org, setOrg] = useState(null);
+  const navigate = useNavigate();
 
   const key = `cards_${orgName}`;
 
@@ -66,7 +67,7 @@ const AddCategoryDelails = () => {
   // };
   const handleSave = () => {
     if (!newCard.name || !newCard.description || !newCard.image) {
-      alert("Please fill all fields and upload an image");
+      // alert("Please fill all fields and upload an image");
       return;
     }
 
@@ -239,13 +240,22 @@ const AddCategoryDelails = () => {
         </div>
 
         <div className="text-center mt-4">
-          <NavLink
+          {/* <NavLink
             onClick={handleSave}
             to="/RedCrescentDetailsForIndviual"
             className={`save-btn ${AddCategoryDelailsStyle.saveBtn}`}
           >
             Save
-          </NavLink>
+          </NavLink> */}
+          <button
+            onClick={() => {
+              handleSave(); // تنفذي حفظ البطاقة
+              navigate(`/OrgDetails/${orgName}`); // توجهي لصفحة المؤسسة حسب اسمها
+            }}
+            className={`save-btn ${AddCategoryDelailsStyle.saveBtn}`}
+          >
+            Save
+          </button>
         </div>
       </div>
     </Fragment>

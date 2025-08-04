@@ -30,6 +30,7 @@ const Register = () => {
       PhoneNumber: PhoneNumberRef.current.value,
       Password: PasswordRef.current.value,
       ConfirmPassword: ConfirmPasswordRef.current.value,
+      userType: selectedRole,
     };
   };
 
@@ -65,12 +66,13 @@ const Register = () => {
       IdNumberRef.current.value,
       PhoneNumberRef.current.value,
       PasswordRef.current.value,
-      ConfirmPasswordRef.current.value
+      ConfirmPasswordRef.current.value,
     );
   
     if (result.status) {
       const UserData = userData();
       console.log("Before handleSubmit, selectedRole:", selectedRole);
+      localStorage.setItem("userData", JSON.stringify(UserData));
       auth.updateUserInfo(UserData);
       auth.updateloggedIn(true);
       auth.UpdateToken(result.token);

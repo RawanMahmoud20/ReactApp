@@ -148,6 +148,25 @@ button + button {
   width: 250px;
   box-sizing: border-box;
 }
+.btndanger {
+  border-radius: 30px;
+  background: linear-gradient(90deg, #ff5e7e 0%, #ff2d55 100%);
+  width: 200px;
+  padding: 8px 0;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+.rightBottomButton {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 100%; /* تأخذ كل ارتفاع البطاقة */
+  flex-direction: column;
+  margin-top: auto;
+}
 
 /* تعديل المسافات في الصفوف */
 .profileInfo > div {

@@ -81,17 +81,7 @@ const AddCategory = () => {
           ))
         )}
 
-        {/* <div className={`card card-custom p-3 mb-3 text-start`}>
-          <h3>
-            <img src={health} className={`${AddCategorystyle.icon}`} alt="logo" />
-            Health
-            <span className={`${AddCategorystyle.rating}`}>★★★★★</span>
-          </h3>
-          <p>
-            We help cover treatment costs and essential medications for those in
-            need
-          </p>
-        </div> */}
+       
 
         <div className={`card card-custom p-3 mb-3 text-start`}>
           <h3>

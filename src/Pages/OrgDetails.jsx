@@ -11,7 +11,9 @@ const OrgDetails = () => {
   const { orgName } = useParams();
   const [org, setOrg] = useState(null);
   const { cards, setCards } = useContext(CardContext);
-
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  const userType = userData?.userType;
+ 
   useEffect(() => {
     // جلب بيانات المؤسسة
     const orgs = JSON.parse(localStorage.getItem("newOrgs") || "[]");
@@ -94,20 +96,22 @@ const OrgDetails = () => {
           ))
         )}
 
-        <div className={`card card-custom p-3 mb-3 text-start`}>
-          <h3>
-            <NavLink to={`/AddCategoryDelails/${org.name.replace(/\s+/g, "")}`}>
-              <i
-                className={`fas fa-circle-plus ${AddCategoryStyle.plusIcon}`}
-              ></i>
-            </NavLink>
-            Add category
-            <span className={`${AddCategoryStyle.rating}`}>★★☆☆☆</span>
-          </h3>
-          <p>Add information about Organization.</p>
-        </div>
+        {userType === "Organization" && (
+          <div className={`card card-custom p-3 mb-3 text-start`}>
+            <h3>
+              <NavLink to={`/AddCategoryDelails/${org.name.replace(/\s+/g, "")}`}>
+                <i className={`fas fa-circle-plus ${AddCategoryStyle.plusIcon}`}></i>
+              </NavLink>
+              Add category
+              <span className={`${AddCategoryStyle.rating}`}>★★☆☆☆</span>
+            </h3>
+            <p>Add information about Organization.</p>
+          </div>
+        )}
 
+        {userType === "Organization" && (
         <button className={`${AddCategoryStyle.saveBtn} mt-3`}>Save</button>
+      )}
       </main>
     </Fragment>
   );

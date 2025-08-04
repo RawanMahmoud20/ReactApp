@@ -4,10 +4,11 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Flag from "../resourse/imgs/Flag.png";
 import OrganizationProfileStyle from "../resourse/cssModules/UserProfile.module.css";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { updateEmail } from "firebase/auth";
+import OrgNavBar from "./OrgNavBar";
 
 const OrganizationProfile = () => {
     let auth = useContext(AuthContext);
@@ -19,6 +20,36 @@ const OrganizationProfile = () => {
         PhoneNumber: user?.PhoneNumber || "",
         IdNumber: user?.IdNumber || "",
       });
+    const [registeredUsersCount, setRegisteredUsersCount] = useState(0);
+    const [beneficiariesCount, setBeneficiariesCount] = useState(0);
+
+useEffect(() => {
+  const storedUsers = localStorage.getItem("registeredUsers");
+
+  if (storedUsers) {
+    try {
+      const parsedUsers = JSON.parse(storedUsers);
+
+      if (Array.isArray(parsedUsers)) {
+        setRegisteredUsersCount(parsedUsers.length);
+
+        const doneUsers = parsedUsers.filter(user => user.status === "done");
+        setBeneficiariesCount(doneUsers.length);
+      } else {
+        setRegisteredUsersCount(0);
+        setBeneficiariesCount(0);
+      }
+    } catch (error) {
+      console.error("فشل في قراءة registeredUsers من localStorage", error);
+      setRegisteredUsersCount(0);
+      setBeneficiariesCount(0);
+    }
+  } else {
+    setRegisteredUsersCount(0);
+    setBeneficiariesCount(0);
+  }
+}, []);
+
     const navigate = useNavigate();
       //عند تعديل أي input، نحفظ القيمة الجديدة في editedData.
       const handleInputChange = (element) => {
@@ -57,7 +88,7 @@ const OrganizationProfile = () => {
     }
   return (
     <Fragment>
-      <NavBar />
+      <OrgNavBar />
       <div
         className={`container-fluid p-5 bg-primary text-white text-center login-cover ${OrganizationProfileStyle.loginCover}`}
       ></div>
@@ -176,23 +207,22 @@ const OrganizationProfile = () => {
           </div>
 
         <div className={`aid-card ${OrganizationProfileStyle.aidCard}`}>
-          <h5>Service name</h5>
+          <h5>Registered Users </h5>
           <p>
-            Number of registrants: <span>Exxxxxx</span>
+            Number of registrants: <span>{registeredUsersCount}</span>
           </p>
           <p>
-            Number of beneficiaries: <span>Exxxxxx</span>
+            Number of beneficiaries: <span>{beneficiariesCount}</span>
           </p>
-        </div>
-
-        <div className={`aid-card ${OrganizationProfileStyle.aidCard}`}>
-          <h5>Service name</h5>
-          <p>
-            Number of registrants: <span>Exxxxxx</span>
-          </p>
-          <p>
-             Number of beneficiaries: <span>Exxxxxx</span>
-          </p>
+  {/* غلاف الزر الجديد */}
+  <div className={OrganizationProfileStyle.rightBottomButton}>
+    <a
+      href="/RegisteredUserReports"
+      className={`btn btn-danger text-white ${OrganizationProfileStyle.btndanger}`}
+    >
+      Registered Users Report
+    </a>
+  </div>
         </div>
       </div>
     </Fragment>

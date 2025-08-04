@@ -102,6 +102,7 @@ useEffect(() => {
     // تحديث notificationData كمصفوفة بإضافة الإشعار الجديد
 setNotificationData((prev) => {
   const updated = [newNotification,...(Array.isArray(prev) ?  prev : [])];
+  setUnreadNotifications((count) => count + 1);
         // ✅ إظهار رسالة SweetAlert
   Swal.fire({
     icon: "success",
@@ -109,7 +110,6 @@ setNotificationData((prev) => {
     text: "The notification has been sent successfully.",
     confirmButtonColor: "#d33"
   });
-  setUnreadNotifications((count) => count + 1);
   return updated;
 });
  // تغيير حالة المستخدمين المعروضين (في حالة done) إلى waiting

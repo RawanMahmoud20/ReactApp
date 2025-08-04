@@ -8,16 +8,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { AuthContext, AuthContextProvider } from "./Context/AuthContext.jsx";
 import { RegisteredUsersProvider } from "./Context/RegisteredUsersContext.jsx";
 import CardContextProvider from "./Context/CardContext.jsx";
+import { NotificationProvider } from "./Context/NotificationContext.jsx";
 // import './resourse/Css/style.css';
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <AuthContextProvider>
+      <NotificationProvider>
       <RegisteredUsersProvider>
         <CardContextProvider>
         <AppRoutes />
         </CardContextProvider>
       </RegisteredUsersProvider>
+      </NotificationProvider>
     </AuthContextProvider>
   </BrowserRouter>
 );

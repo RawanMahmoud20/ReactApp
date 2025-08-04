@@ -1,6 +1,7 @@
 import { Fragment } from "react/jsx-runtime";
 import NavBarStyle from "../resourse/cssModules/NavBar.module.css";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
 
 const OrgNavBar = () => {
 //   let auth = useContext(AuthContext);
@@ -17,7 +18,7 @@ const userType = localStorage.getItem("userType");
                 {/* <NavLink className="nav-link" to="/UserProfile">
                   <i className="fa-solid fa-user"></i>
                 </NavLink> */}
-            <NavLink className="nav-link" to={userType === "organization" ? "/OrganizationProfile" : "/UserProfile"}>
+            <NavLink className="nav-link" to="/OrganizationProfile">
               <i className="fa-solid fa-user"></i>
             </NavLink>
               </div>
@@ -49,6 +50,18 @@ const userType = localStorage.getItem("userType");
               </li>
               <li className="nav-item">
                 <NavLink
+                to="/UserPage"
+                className={(props) =>
+                  props.isActive ? `nav-link underline-red active ${NavBarStyle.underlineRed}` : "nav-link"
+                }
+                aria-current="page"
+                end
+              >
+                Our Organizations
+              </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
                 to="/OrganizationPage"
                 className={(props) =>
                   props.isActive ? `nav-link underline-red active ${NavBarStyle.underlineRed}` : "nav-link"
@@ -56,19 +69,7 @@ const userType = localStorage.getItem("userType");
                 aria-current="page"
                 end
               >
-                Your Organizations
-              </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                to="/AddCategory"
-                className={(props) =>
-                  props.isActive ? `nav-link underline-red active ${NavBarStyle.underlineRed}` : "nav-link"
-                }
-                aria-current="page"
-                end
-              >
-                Add Category
+                Add Organization Category
               </NavLink>
               </li>
               <li className="nav-item">

@@ -4,11 +4,13 @@ import ContactSection from "../Components/ContactSection";
 import OrgNavBar from "../Components/OrgNavBar";
 
 const ContactUsPage = () => {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+  const userType = userData?.userType;
   // الحصول على نوع المستخدم من localStorage
-  const userType = localStorage.getItem("userType"); // القيمة يجب أن تكون "org" أو "individual"
+  // const userType = localStorage.getItem("userData"); // القيمة يجب أن تكون "org" أو "individual"
   return (
     <Fragment>
-    {userType === "organization" ? <OrgNavBar /> : <NavBar />}
+      {userType === "Organization" ? <OrgNavBar /> : <NavBar />}
       <ContactSection />
     </Fragment>
   );

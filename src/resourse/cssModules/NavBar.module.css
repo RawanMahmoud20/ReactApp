@@ -47,3 +47,10 @@
   background: linear-gradient(90deg, #ff5e7e 0%, #ff2d55 100%);
   width: 150px;
 }
+.smallBadge{
+  margin-top: 12px;
+  font-size: 10px;
+  width: 18px;
+  margin-left: -3px;
+  height: 16px;
+}

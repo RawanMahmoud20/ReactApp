@@ -80,8 +80,18 @@ const handleNotificationsClick = () => {
                   CONTACT US
                 </NavLink>
               </li>
-             
-              <li className="nav-item" onClick={handleNotificationsClick}>
+             <li className="nav-item position-relative" onClick={handleNotificationsClick}>
+  <NavLink className="nav-link" to="/Notifications">
+    <i className="fa-regular fa-bell"></i>
+    {unreadNotifications > 0 && (
+      <span className={`position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger ${NavBarStyle.smallBadge}`}>
+        {unreadNotifications}
+      </span>
+    )}
+  </NavLink>
+</li>
+
+              {/* <li className="nav-item" onClick={handleNotificationsClick}>
                 <NavLink className="nav-link" to="/Notifications">
                 <i className="fa-regular fa-bell"></i>
                   {unreadNotifications > 0 && (
@@ -90,7 +100,7 @@ const handleNotificationsClick = () => {
                       </span>
                     )}
                 </NavLink>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

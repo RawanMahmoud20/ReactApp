@@ -11,11 +11,12 @@ import { AuthContext } from "../Context/AuthContext";
 import OrgNavBar from "../Components/OrgNavBar";
 const HomePage = () => {
   let auth = useContext(AuthContext);
-  const userType = localStorage.getItem("userType");
+    const userData = JSON.parse(localStorage.getItem("userData"));
+  const userType = userData?.userType;
 
   return (
     <Fragment>
-  {userType === "organization" ? <OrgNavBar /> : <NavBar />}
+  {userType === "Organization" ? <OrgNavBar /> : <NavBar />}
       <About />
       <OrganizationsSection />
       <LocationsSection />
